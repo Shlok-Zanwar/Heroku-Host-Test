@@ -10,7 +10,8 @@ router = APIRouter(
 @router.post("/models/mnist")
 async def create_file(file: bytes = File(...) ):
     # time.sleep(1.5)
-    return {"prediction": handleMnistPrediction(file)}
+    pred = handleMnistPrediction(file)
+    return {"prediction": pred}
 
 
 class IncomeModelSchema (BaseModel):
